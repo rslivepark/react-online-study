@@ -1,0 +1,40 @@
+#root {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+.main {
+  display: flex;
+  justify-content: center;
+}
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 10px solid black;
+  width: 500px;
+  height: 700px;
+}
+.green {
+  border-color: green;
+}
+.red {
+  border-color: red;
+}
+.tie {
+  border-color: orange;
+}
+.box-title {
+  text-transform: capitalize;
+}
+.item-img {
+  width: 275px;
+  height: 275px;
+}
+button {
+  margin-top: 20px;
+  font-size: 60px;
+  border: none;
+  background-color: transparent;
+}
