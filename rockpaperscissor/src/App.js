@@ -19,15 +19,42 @@ const choice = {
 
 function App() {
   const [userSelect, setUserSelect] = useState(null);
+  const [computerSelelct, setComputerSelelct] = useState(null);
+  const [result, setResult] = useState({ userResult: '', computerResult: '' });
   const play = (userChoice) => {
     setUserSelect(choice[userChoice]);
-    console.log(userSelect);
+    let computerChoice = randomChoice();
+    setComputerSelelct(computerChoice);
+    const userResult = judgement(choice[userChoice], computerChoice);
+    const computerResult =
+      userResult === 'Win' ? 'Lose' : userResult === 'Lose' ? 'Win' : 'Tie';
+    setResult({ userResult: userResult, computerResult: computerResult });
+  };
+  const judgement = (user, computer) => {
+    if (user.name === computer.name) return 'Tie';
+    else if (user.name === 'Rock')
+      return computer.name === 'Scissors' ? 'Win' : 'Lose';
+    else if (user.name === 'Scissors')
+      return computer.name === 'Paper' ? 'Win' : 'Lose';
+    else if (user.name === 'Paper')
+      return computer.name === 'Rock' ? 'Win' : 'Lose';
+  };
+  const randomChoice = () => {
+    // 객체의 키값만 뽑아서 배열로 만들어주는 함수
+    let itemArray = Object.keys(choice);
+    let randomItem = Math.floor(Math.random() * itemArray.length);
+    let final = itemArray[randomItem];
+    return choice[final];
   };
   return (
     <div>
       <div className='main'>
-        <Box title='you' item={userSelect} />
-        {/* <Box title='computer' /> */}
+        <Box title='you' item={userSelect} result={result.userResult} />
+        <Box
+          title='computer'
+          item={computerSelelct}
+          result={result.computerResult}
+        />
       </div>
       <div className='main'>
         <button onClick={() => play('scissors')}>✌️</button>
@@ -40,9 +67,6 @@ function App() {
 
 export default App;
 
-//1. 박스 2개(타이틀, 사진, 결과)
-//2. 가위 바위 보 버튼이 있다.
-//3. 버튼을 클릭하면 클릭한 값이 박스에 보임
-//4. 컴퓨터는 랜덤하게 아이템 선택이 된다
-//5. 3,4번의 결과를 가지고 누가 이겼는지 승패를 따진다.
-//6. 승패 결과에 따라 테두리 색이 바뀐다
+// 챌린지
+// 승패 결과 보여주기
+// 승패 UI 구분하기 (이기면 초록색, 지면 빨간색 테두리)

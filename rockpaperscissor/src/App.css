@@ -1,7 +1,11 @@
+#root {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
 .main {
   display: flex;
   justify-content: center;
-  margin: 0 auto;
 }
 .box {
   display: flex;
@@ -12,11 +16,25 @@
   width: 500px;
   height: 700px;
 }
-
-.item-img {
-  width: 400px;
+.green {
+  border-color: green;
 }
-
+.red {
+  border-color: red;
+}
+.tie {
+  border-color: orange;
+}
+.box-title {
+  text-transform: capitalize;
+}
+.item-img {
+  width: 275px;
+  height: 275px;
+}
 button {
-  font-size: 24px;
+  margin-top: 20px;
+  font-size: 60px;
+  border: none;
+  background-color: transparent;
 }
