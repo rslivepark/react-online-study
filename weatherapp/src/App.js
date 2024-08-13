@@ -3,12 +3,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 import WeatherBox from './components/WeatherBox';
 import WeatherButton from './components/WeatherButton';
+import ClipLoader from 'react-spinners/ClipLoader';
 // import axios from 'axios';
 
 const API_KEY = `929984da8782694dc93368fbb531a259`;
 
 function App() {
   const [weather, setWeather] = useState(null);
+  const cities = ['paris', 'london', 'new york', 'seoul'];
+  const [city, setCity] = useState('');
+  const [loading, setLoading] = useState(false);
+
   const getCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       let lat = position.coords.latitude;
@@ -19,23 +24,47 @@ function App() {
   const getWeatherByCurrentLocation = async (lat, lon) => {
     let URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
     try {
+      setLoading(true);
       let response = await fetch(URL);
       let data = await response.json();
       setWeather(data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
+    setLoading(false);
+  };
+  const getWeatherByCity = async () => {
+    let URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+    try {
+      setLoading(true);
+      let response = await fetch(URL);
+      let data = await response.json();
+      setWeather(data);
+    } catch (error) {
+      console.log(error);
+    }
+    setLoading(false);
   };
   useEffect(() => {
-    getCurrentLocation();
-  }, []);
+    if (city === '') {
+      getCurrentLocation();
+    } else {
+      getWeatherByCity();
+    }
+  }, [city]);
+
   return (
     <div>
-      <div className='container'>
-        <WeatherBox weather={weather} />
-        <WeatherButton weather={weather} />
-      </div>
+      {loading ? (
+        <div className='container'>
+          <ClipLoader color='lime' loading={loading} size={150} />
+        </div>
+      ) : (
+        <div className='container'>
+          <WeatherBox weather={weather} />
+          <WeatherButton cities={cities} setCity={setCity} />
+        </div>
+      )}
     </div>
   );
 }
