@@ -1,24 +1,27 @@
 import './App.css';
-import { useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useEffect, useState } from 'react';
+import WeatherBox from './components/WeatherBox';
+import WeatherButton from './components/WeatherButton';
 // import axios from 'axios';
 
 const API_KEY = `929984da8782694dc93368fbb531a259`;
 
 function App() {
+  const [weather, setWeather] = useState(null);
   const getCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       let lat = position.coords.latitude;
       let lon = position.coords.longitude;
-      // const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
       getWeatherByCurrentLocation(lat, lon);
     });
   };
-
   const getWeatherByCurrentLocation = async (lat, lon) => {
-    let URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+    let URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
     try {
       let response = await fetch(URL);
       let data = await response.json();
+      setWeather(data);
       console.log(data);
     } catch (error) {
       console.log(error);
@@ -27,7 +30,14 @@ function App() {
   useEffect(() => {
     getCurrentLocation();
   }, []);
-  return <div>Hello Weather</div>;
+  return (
+    <div>
+      <div className='container'>
+        <WeatherBox weather={weather} />
+        <WeatherButton weather={weather} />
+      </div>
+    </div>
+  );
 }
 
 export default App;

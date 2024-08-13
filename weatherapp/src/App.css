@@ -1,6 +1,21 @@
 body {
-  background: url('https://thumbs.dreamstime.com/b/sunny-weather-green-nature-background-illustration-style-sunny-weather-green-nature-background-illustration-style-theme-325545055.jpg');
+  background: url('https://img.freepik.com/premium-vector/vector-illustration-blue-sky-with-white-clouds-background_8589-482.jpg');
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.weatherBox {
+  border: 3px solid white;
+  padding: 50px;
+  border-radius: 30px;
+  background-color: beige;
 }
