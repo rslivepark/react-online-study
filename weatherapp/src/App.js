@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import WeatherBox from './components/WeatherBox';
 import WeatherButton from './components/WeatherButton';
 import ClipLoader from 'react-spinners/ClipLoader';
-// import axios from 'axios';
 
 const API_KEY = `929984da8782694dc93368fbb531a259`;
 
