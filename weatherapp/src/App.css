@@ -18,4 +18,26 @@ body {
   padding: 50px;
   border-radius: 30px;
   background-color: beige;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.weatherBox > img {
+  width: 200px;
+  height: 200px;
+}
+.weatherInfo {
+  text-transform: capitalize;
+}
+
+.weatherButton {
+  margin-top: 20px;
+}
+.buttonTag {
+  margin: 0 10px;
+}
+.buttonText {
+  text-transform: capitalize;
+  font-weight: 800;
 }

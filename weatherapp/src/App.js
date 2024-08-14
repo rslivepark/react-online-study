@@ -28,6 +28,7 @@ function App() {
       let response = await fetch(URL);
       let data = await response.json();
       setWeather(data);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -47,11 +48,21 @@ function App() {
   };
   useEffect(() => {
     if (city === '') {
+      setLoading(true);
       getCurrentLocation();
     } else {
+      setLoading(true);
       getWeatherByCity();
     }
   }, [city]);
+
+  const handleCityChange = (selectedCity) => {
+    if (selectedCity === 'current') {
+      setCity('');
+    } else {
+      setCity(selectedCity);
+    }
+  };
 
   return (
     <div>
@@ -62,7 +73,12 @@ function App() {
       ) : (
         <div className='container'>
           <WeatherBox weather={weather} />
-          <WeatherButton cities={cities} setCity={setCity} />
+          <WeatherButton
+            cities={cities}
+            setCity={setCity}
+            city={city}
+            handleCityChange={handleCityChange}
+          />
         </div>
       )}
     </div>
