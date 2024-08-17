@@ -16,11 +16,12 @@
   --red: #dc3545;
   --lightgreen: #5cb85c;
 }
+
 .top-area {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .search-area {
   display: flex;
@@ -51,8 +52,11 @@
 .login-button {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   margin-right: 20px;
+  cursor: pointer;
 }
+
 .user-icon {
   margin-right: 10px;
 }
@@ -60,6 +64,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 30px 0 20px 0;
 }
 .menu-area {
   display: flex;
@@ -70,6 +75,76 @@
   list-style-type: none;
   display: flex;
 }
-.menu-list li {
+.menu-button {
   padding: 0 10px;
+  border: none;
+  background-color: transparent;
+  margin-bottom: 30px;
+}
+@media screen and (max-width: 768px) {
+  .menu-button,
+  .login-button > div {
+    font-size: 13px;
+  }
+}
+.product-card img {
+  width: 100%;
+}
+.product-card {
+  cursor: pointer;
+  &:hover .photo img {
+    transform: scale(1.05);
+  }
+  &:hover .title {
+    color: var(--green);
+  }
+}
+.photo {
+  margin-bottom: 20px;
+  height: auto;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: auto;
+    transition: 0.3s;
+  }
+}
+.text {
+  padding: 0 10px;
+
+  .title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    transition: 0.3s;
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+
+    .price {
+      font-size: 0.95rem;
+
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+}
+.choice-text {
+  font-size: 0.8rem;
+  color: var(--orange);
+  animation: blink 2s step-end infinite;
+  margin-bottom: 10px;
+
+  @keyframes blink {
+    50% {
+      color: var(--text-light);
+    }
+  }
+}
+
+.login-page {
+  margin-top: 100px;
 }

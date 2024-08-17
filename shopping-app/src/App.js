@@ -1,19 +1,28 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from 'react-router-dom';
 import ProductAll from './pages/ProductAll';
 import Login from './pages/Login';
 import ProductDetail from './pages/ProductDetail';
 import NavBar from './components/NavBar';
+import { Container } from 'react-bootstrap';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [auth, setAuth] = useState(false); // true: success login!
+  useEffect(() => {
+    console.log('auth', auth);
+  }, [auth]);
   return (
     <>
-      <NavBar />
-      <Routes>
-        <Route path='/' element={<ProductAll />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/product/:id' element={<ProductDetail />} />
-      </Routes>
+      <Container>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<ProductAll />} />
+          <Route path='/login' element={<Login setAuth={setAuth} />} />
+          <Route path='/product/:id' element={<ProductDetail />} />
+        </Routes>
+      </Container>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaRegUser, FaSearch } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 export default function NavBar() {
   const menuList = [
@@ -12,6 +13,10 @@ export default function NavBar() {
     'sale',
     '지속가능성',
   ];
+  const navigate = useNavigate();
+  const goToLogin = () => {
+    navigate('/login');
+  };
   return (
     <div>
       <div className='top-area'>
@@ -19,7 +24,7 @@ export default function NavBar() {
           <FaSearch className='search-icon' />
           <input type='text' />
         </div>
-        <div className='login-area'>
+        <div className='login-area' onClick={goToLogin}>
           <div className='login-button'>
             <FaRegUser className='user-icon' />
             <div>로그인</div>
@@ -34,11 +39,11 @@ export default function NavBar() {
         />
       </div>
       <div className='menu-area'>
-        <ul className='menu-list'>
+        <div className='menu-list'>
           {menuList.map((menu) => (
-            <li>{menu}</li>
+            <span className='menu-button'>{menu}</span>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );
