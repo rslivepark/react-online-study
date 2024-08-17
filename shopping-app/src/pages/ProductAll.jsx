@@ -9,11 +9,13 @@ export default function ProductAll() {
 
   const getProducts = async () => {
     let searchQuery = query.get('q') || '';
-    const url = `http://localhost:9999/products?q=${searchQuery}`;
+    const url = `http://my-json-server.typicode.com/rslivepark/hnm-react-router-practice/products?q=${searchQuery}`;
     const response = await fetch(url);
     const data = await response.json();
     setProductList(data);
   };
+
+  //
   useEffect(() => {
     getProducts();
   }, [query]);
