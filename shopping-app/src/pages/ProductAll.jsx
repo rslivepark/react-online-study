@@ -1,25 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useSearchParams } from 'react-router-dom';
 
 export default function ProductAll() {
   const [productList, setProductList] = useState([]);
+  const [query, setQuery] = useSearchParams();
+
   const getProducts = async () => {
-    const url = `http://localhost:9999/products`;
+    let searchQuery = query.get('q') || '';
+    const url = `http://localhost:9999/products?q=${searchQuery}`;
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
     setProductList(data);
   };
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [query]);
   return (
     <div>
       <Container>
         <Row>
           {productList.map((menu, index) => (
-            <Col key={index} lg={3} xl={3} md={4} xs={6}>
+            <Col key={index} lg={3} xl={3} md={6} xs={12}>
               <ProductCard item={menu} />
             </Col>
           ))}

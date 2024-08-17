@@ -3,16 +3,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from 'react-router-dom';
 import ProductAll from './pages/ProductAll';
 import Login from './pages/Login';
-import ProductDetail from './pages/ProductDetail';
 import NavBar from './components/NavBar';
 import { Container } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
+import PrivateRoute from './route/PrivateRoute';
 
 function App() {
-  const [auth, setAuth] = useState(false); // true: success login!
-  useEffect(() => {
-    console.log('auth', auth);
-  }, [auth]);
+  const [auth, setAuth] = useState(true); // true: success login!
+
   return (
     <>
       <Container>
@@ -20,7 +18,7 @@ function App() {
         <Routes>
           <Route path='/' element={<ProductAll />} />
           <Route path='/login' element={<Login setAuth={setAuth} />} />
-          <Route path='/product/:id' element={<ProductDetail />} />
+          <Route path='/product/:id' element={<PrivateRoute auth={auth} />} />
         </Routes>
       </Container>
     </>
@@ -29,13 +27,8 @@ function App() {
 
 export default App;
 
-//1. 전체상품 페이지, 로그인, 상품상세 페이지
-//1-1. 네비게이션 바 만들기
-//2. 전체상품을 볼 수 있다
-//3. 로그인 버튼 누르면 로그인 페이지 나온다
-//3. 상품 디테일 눌렀으나 로그인이 안됐을경우에는 로그인페이지가 먼저 나온다
-//4. 로그인이 되었을 경우 상품 디테일 볼 수 있다.
-//5. 로그아웃 버튼을 클릭하면 로그아웃이 된다.
-//5. 로그아웃이 되면 상품 디테일페이지 볼 수 없다. 다시 로그인 페이지가 보인다
-//6. 로그인을 하면 로그아웃이 보이고 로그아웃을 하면 로그인이 보인다
-//7. 상품을 검색할 수 있다.
+// 챌린지
+//1. 유저는 로그아웃 할 수 있다
+//2. 로그인이 된 상태이면 로그아웃 버튼이, 로그아웃 된 상태이면 로그인 버튼이 보인다
+//3. 로고를 클릭하면 상품 전체 페이지로 이동한다
+//4. 모바일 버전에서 메뉴는 사이드 메뉴로 들어간다. 제품 사진들은 한장씩 세로로 나온다.

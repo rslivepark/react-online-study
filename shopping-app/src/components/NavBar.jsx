@@ -17,12 +17,22 @@ export default function NavBar() {
   const goToLogin = () => {
     navigate('/login');
   };
+  const goToMain = () => {
+    navigate('/');
+  };
+  const handleSearch = (e) => {
+    if (e.key === 'Enter') {
+      let keyword = e.target.value;
+      navigate(`/?q=${keyword}`);
+      e.target.value = '';
+    }
+  };
   return (
     <div>
       <div className='top-area'>
         <div className='search-area'>
           <FaSearch className='search-icon' />
-          <input type='text' />
+          <input type='text' onKeyPress={(e) => handleSearch(e)} />
         </div>
         <div className='login-area' onClick={goToLogin}>
           <div className='login-button'>
@@ -36,6 +46,7 @@ export default function NavBar() {
           width={100}
           src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/1418px-H%26M-Logo.svg.png'
           alt='logo'
+          onClick={goToMain}
         />
       </div>
       <div className='menu-area'>
