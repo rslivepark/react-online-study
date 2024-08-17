@@ -15,7 +15,7 @@ export default function ProductAll() {
     setProductList(data);
   };
 
-  //
+  //rslivepark/react-online-study/tree/main/shopping-app
   useEffect(() => {
     getProducts();
   }, [query]);
