@@ -6,7 +6,7 @@ export default function ProductDetail() {
   let { id } = useParams();
   const [product, setProduct] = useState(null);
   const getProductDetail = async () => {
-    const url = `http://my-json-server.typicode.com/rslivepark/hnm-react-router-practice/products/${id}`;
+    const url = `https://my-json-server.typicode.com/rslivepark/hnm-react-router-practice/products/${id}`;
     const response = await fetch(url);
     const data = await response.json();
     setProduct(data);
