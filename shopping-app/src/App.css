@@ -1,0 +1,75 @@
+:root {
+  --black: #181818;
+  --white: #fafafa;
+  --green: #58dd94;
+  --black: #242424;
+  --orange: #fd7e14;
+  --pink: #d63384;
+  --blue: #0d6efd;
+  --yellow: #ffc107;
+  --light: #f8f9fa;
+  --dark: #dee2e6;
+  --teal: #20c997;
+  --cyan: #0dcaf0;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --red: #dc3545;
+  --lightgreen: #5cb85c;
+}
+.top-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+.search-area {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 20px;
+}
+.search-icon {
+  position: relative;
+  left: 15px;
+  margin-bottom: 10px;
+}
+.search-area input {
+  border: none;
+  border-bottom: 1px solid var(--black);
+  padding-left: 20px;
+  padding-bottom: 10px;
+
+  &:focus {
+    outline: none;
+  }
+}
+.login-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+.user-icon {
+  margin-right: 10px;
+}
+.nav-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-list {
+  list-style-type: none;
+  display: flex;
+}
+.menu-list li {
+  padding: 0 10px;
+}
