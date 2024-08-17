@@ -35,7 +35,9 @@ export default function ProductDetail() {
             </FormSelect>
           </div>
           <div className='add-product-button'>
-            <Button variant='danger'>추가하기</Button>
+            <Button className='custom-button' variant='danger'>
+              추가하기
+            </Button>
           </div>
         </Col>
       </Row>
