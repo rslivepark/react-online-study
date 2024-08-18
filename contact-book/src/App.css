@@ -1,3 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Limelight&family=Noto+Sans+KR:wght@100..900&display=swap');
+
 .title {
+  margin-top: 40px;
   text-align: center;
+  font-family: Limelight;
+  font-size: 30px;
+}
+.second-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.search-area,
+.result-list,
+.search-list {
+  margin-top: 1rem;
+}
+.item-list {
+  margin: 1rem 0;
+}
+.addBtn {
+  font-weight: 600 !important;
 }

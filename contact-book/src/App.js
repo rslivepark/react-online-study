@@ -1,17 +1,13 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import './App.css';
-import ContactForm from './components/ContactForm';
 import ContactList from './components/ContactList';
 
 function App() {
   return (
     <div className='App'>
-      <h1 className='title'>Contact</h1>
-      <Container>
+      <h1 className='title'>Who's your favorite singer?</h1>
+      <Container className='col-4'>
         <Row>
-          <Col>
-            <ContactForm />
-          </Col>
           <Col>
             <ContactList />
           </Col>
