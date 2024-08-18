@@ -4,43 +4,38 @@ import Button from './components/Button';
 
 function App() {
   const dispatch = useDispatch();
-  const count = useSelector((state) => state.count); // 함수를 매개변수로 받음
-  const increase = (value) => {
+  const count = useSelector((state) => state.count);
+
+  const handleAction = (type, value) => {
     dispatch({
-      type: 'increment',
+      type,
       payload: value,
-      // payload: { plus5: 5, plus10: 10, plus100: 100 },
-    }); // type is action's name
-    // payload: 함수 매개변수와 같은 존재
-  };
-  const decrease = (value) => {
-    dispatch({
-      type: 'decrement',
-      payload: value,
-      // payload: { minus5: 5, minus10: 10, minus100: 100 },
-    }); // type is action's name
-  };
-  const reset = () => {
-    dispatch({
-      type: 'reset',
     });
   };
+
+  const buttons = [
+    { label: '+1', type: 'increment', value: 1 },
+    { label: '+5', type: 'increment', value: 5 },
+    { label: '+10', type: 'increment', value: 10 },
+    { label: '+100', type: 'increment', value: 100 },
+    { label: '-1', type: 'decrement', value: 1 },
+    { label: '-5', type: 'decrement', value: 5 },
+    { label: '-10', type: 'decrement', value: 10 },
+    { label: '-100', type: 'decrement', value: 100 },
+  ];
 
   return (
     <section>
       <h1>{count}</h1>
-      <Button onClick={() => reset()} btnName={'Reset'} />
+      <Button onClick={() => handleAction('reset')} btnName={'Reset'} />
       <div>
-        <Button onClick={() => increase(1)} btnName={'+1'} />
-        <Button onClick={() => increase(5)} btnName={'+5'} />
-        <Button onClick={() => increase(10)} btnName={'+10'} />
-        <Button onClick={() => increase(100)} btnName={'+100'} />
-      </div>
-      <div>
-        <Button onClick={() => decrease(1)} btnName={'-1'} />
-        <Button onClick={() => decrease(5)} btnName={'-5'} />
-        <Button onClick={() => decrease(10)} btnName={'-10'} />
-        <Button onClick={() => decrease(100)} btnName={'-100'} />
+        {buttons.map((btn) => (
+          <Button
+            key={btn.label}
+            onClick={() => handleAction(btn.type, btn.value)}
+            btnName={btn.label}
+          />
+        ))}
       </div>
     </section>
   );
