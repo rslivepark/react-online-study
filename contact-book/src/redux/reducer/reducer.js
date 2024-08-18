@@ -1,5 +1,6 @@
 const initialState = {
   contactList: [],
+  keyword: '',
 };
 
 export default function reducer(state = initialState, action) {
@@ -16,6 +17,8 @@ export default function reducer(state = initialState, action) {
           },
         ],
       };
+    case 'SEARCH_BY_NAME':
+      return { ...state, keyword: payload.keyword };
     default:
       return { ...state };
   }
