@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Button, Col, Container, FormSelect, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { productAction } from '../redux/actions/productAction';
 
 export default function ProductDetail() {
   let { id } = useParams();
-  const [product, setProduct] = useState(null);
+  const product = useSelector((state) => state.product.selectedItem);
+  const dispatch = useDispatch();
   const getProductDetail = async () => {
-    const url = `https://my-json-server.typicode.com/rslivepark/react-online-study/products/${id}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    setProduct(data);
+    dispatch(productAction.getProductDetail(id));
   };
   useEffect(() => {
     getProductDetail();

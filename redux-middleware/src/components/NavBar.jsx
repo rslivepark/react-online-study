@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { FaRegUser, FaSearch } from 'react-icons/fa';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-export default function NavBar({ setAuth, auth }) {
+export default function NavBar() {
   const [menuVisible, setMenuVisible] = useState(false);
   const menuList = [
     '여성',
@@ -16,12 +17,16 @@ export default function NavBar({ setAuth, auth }) {
     '지속가능성',
   ];
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { authenticate } = useSelector((state) => state.auth);
+
   const goToLogin = () => {
     navigate('/login');
   };
   const goToLogout = () => {
-    setAuth(false);
     if (window.confirm('정말 로그아웃 하시겠습니까?')) {
+      dispatch({ type: 'LOGOUT' });
       navigate('/');
     }
   };
@@ -39,21 +44,20 @@ export default function NavBar({ setAuth, auth }) {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
-        setMenuVisible(true); // 768px 이상일 때 무조건 visible
+        setMenuVisible(true);
       } else {
-        setMenuVisible(false); // 768px 미만일 때 기본적으로 hidden
+        setMenuVisible(false);
       }
     };
 
-    // 초기 렌더링 시 및 리사이즈 이벤트 발생 시 handleResize 함수 실행
     handleResize();
     window.addEventListener('resize', handleResize);
 
-    // 컴포넌트가 언마운트 될 때 리스너 제거
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
   return (
     <div>
       <div className='top-area'>
@@ -66,7 +70,7 @@ export default function NavBar({ setAuth, auth }) {
           <input type='text' onKeyPress={(e) => handleSearch(e)} />
         </div>
         <div className='login-area'>
-          {auth ? (
+          {authenticate ? (
             <div className='login-button' onClick={() => goToLogout()}>
               <FaRegUser className='user-icon' />
               <div>로그아웃</div>
@@ -93,12 +97,14 @@ export default function NavBar({ setAuth, auth }) {
         className='menu-area'
         style={{ visibility: menuVisible ? 'visible' : 'hidden' }}
       >
-        <button class='closebtn' onClick={() => setMenuVisible(false)}>
+        <button className='closebtn' onClick={() => setMenuVisible(false)}>
           ×
         </button>
         <div className='menu-list'>
           {menuList.map((menu) => (
-            <li className='menu-button'>{menu}</li>
+            <li key={menu} className='menu-button'>
+              {menu}
+            </li>
           ))}
         </div>
       </div>

@@ -7,4 +7,13 @@ function getProducts(searchQuery) {
   };
 }
 
-export const productAction = { getProducts };
+function getProductDetail(id) {
+  return async (dispatch, getState) => {
+    const url = `https://my-json-server.typicode.com/rslivepark/react-online-study/products/${id}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    dispatch({ type: 'GET_PRODUCT_DETAIL', payload: { data } });
+  };
+}
+
+export const productAction = { getProducts, getProductDetail };

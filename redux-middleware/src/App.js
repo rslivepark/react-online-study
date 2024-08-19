@@ -5,20 +5,17 @@ import ProductAll from './pages/ProductAll';
 import Login from './pages/Login';
 import NavBar from './components/NavBar';
 import { Container } from 'react-bootstrap';
-import { useState } from 'react';
 import PrivateRoute from './route/PrivateRoute';
 
 function App() {
-  const [auth, setAuth] = useState(false); // true: success login!
-
   return (
     <>
       <Container>
-        <NavBar setAuth={setAuth} auth={auth} />
+        <NavBar />
         <Routes>
           <Route path='/' element={<ProductAll />} />
-          <Route path='/login' element={<Login setAuth={setAuth} />} />
-          <Route path='/product/:id' element={<PrivateRoute auth={auth} />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/product/:id' element={<PrivateRoute />} />
         </Routes>
       </Container>
     </>

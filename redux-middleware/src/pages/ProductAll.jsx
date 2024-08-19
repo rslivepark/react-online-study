@@ -15,7 +15,6 @@ export default function ProductAll() {
     dispatch(productAction.getProducts(searchQuery));
   };
 
-  //rslivepark/react-online-study/tree/main/shopping-app
   useEffect(() => {
     getProducts();
   }, [query]);
