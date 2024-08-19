@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { authenticateAction } from '../redux/actions/authenticateAction';
 
 export default function Login({ setAuth }) {
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const loginUser = (e) => {
     e.preventDefault();
-    setAuth(true);
+    dispatch(authenticateAction.login(id, password));
     navigate('/');
   };
   return (
@@ -14,12 +19,20 @@ export default function Login({ setAuth }) {
       <Form onSubmit={(e) => loginUser(e)}>
         <Form.Group className='mb-3' controlId='formBasicEmail'>
           <Form.Label>ID</Form.Label>
-          <Form.Control type='text' placeholder='Enter your ID' />
+          <Form.Control
+            type='text'
+            placeholder='Enter your ID'
+            onChange={(e) => setId(e.target.value)}
+          />
         </Form.Group>
 
         <Form.Group className='mb-3' controlId='formBasicPassword'>
           <Form.Label>Password</Form.Label>
-          <Form.Control type='password' placeholder='Password' />
+          <Form.Control
+            type='password'
+            placeholder='Password'
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </Form.Group>
         <Form.Group className='mb-3' controlId='formBasicCheckbox'>
           <Form.Check type='checkbox' label='Check me out' />
