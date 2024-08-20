@@ -1,0 +1,257 @@
+:root {
+  --black: #181818;
+  --white: #fafafa;
+  --green: #58dd94;
+  --black: #242424;
+  --orange: #fd7e14;
+  --pink: #d63384;
+  --blue: #0d6efd;
+  --yellow: #ffc107;
+  --light: #f8f9fa;
+  --dark: #dee2e6;
+  --teal: #20c997;
+  --cyan: #0dcaf0;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --red: #dc3545;
+  --lightgreen: #5cb85c;
+}
+
+@media screen and (min-width: 768px) {
+  .top-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .search-area {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+  }
+  .search-icon {
+    position: relative;
+    left: 15px;
+  }
+  .search-area input {
+    border: none;
+    border-bottom: 1px solid var(--black);
+    padding-left: 20px;
+    &:focus {
+      outline: none;
+    }
+  }
+  .login-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  .menu-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: visible;
+  }
+  .menu-list {
+    list-style-type: none;
+    display: flex;
+  }
+  .menu-button {
+    padding: 0 10px;
+    border: none;
+    background-color: transparent;
+    margin-bottom: 30px;
+  }
+  .closebtn {
+    display: none;
+  }
+}
+.user-icon {
+  margin-right: 0.2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .main-logo {
+    width: 70px;
+  }
+  .nav-section {
+    margin-bottom: 2rem;
+  }
+  .top-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .search-icon,
+  .search-area input {
+    display: none;
+  }
+
+  .login-area {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .login-button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+
+  .mobile-menu {
+    cursor: pointer;
+  }
+  .menu-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--green);
+    width: 140px;
+    height: 100%;
+    overflow-x: hidden;
+    z-index: 2;
+  }
+  .menu-list {
+    list-style-type: none;
+  }
+  .closebtn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 24px;
+    margin-left: 20px;
+    border: none;
+    background: none;
+  }
+  .menu-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  .menu-button {
+    margin: 0.4rem 0;
+  }
+}
+
+.menu-list {
+  cursor: pointer;
+}
+.menu-button {
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.nav-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0 20px 0;
+  cursor: pointer;
+}
+
+.product-card img {
+  width: 100%;
+}
+.product-card {
+  cursor: pointer;
+  &:hover .photo img {
+    transform: scale(1.05);
+  }
+  &:hover .title {
+    color: var(--green);
+  }
+}
+.photo {
+  margin-bottom: 20px;
+  height: auto;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: auto;
+    transition: 0.3s;
+  }
+}
+.text {
+  padding: 0 10px;
+
+  .title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    transition: 0.3s;
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+
+    .price {
+      font-size: 0.95rem;
+
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+}
+.choice-text {
+  font-size: 0.8rem;
+  color: var(--orange);
+  animation: blink 2s step-end infinite;
+  margin-bottom: 10px;
+}
+@keyframes blink {
+  50% {
+    color: var(--yellow);
+  }
+}
+
+.login-page {
+  margin-top: 100px;
+}
+.product-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product-image img {
+  width: 350px;
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+.add-product-button {
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-button,
+  .login-button > div {
+    font-size: 13px;
+  }
+}
+.main-logo {
+  filter: invert(71%) sepia(97%) saturate(746%) hue-rotate(97deg)
+    brightness(97%) contrast(101%);
+}
+.custom-button {
+  background-color: var(--green) !important;
+  border: var(--green) !important;
+  font-weight: 600 !important;
+}
