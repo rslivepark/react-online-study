@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 
 export default function ContactItem({ item }) {
-  console.log('item?', item);
+  //console.log('item?', item);
   return (
     <Row className='item-list'>
       <Col lg={2}>
