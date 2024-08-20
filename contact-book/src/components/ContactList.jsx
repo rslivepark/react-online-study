@@ -11,7 +11,9 @@ export default function ContactList() {
 
   useEffect(() => {
     if (keyword !== '') {
-      const list = contactList.filter((item) => item.name.includes(keyword));
+      const list = contactList.filter((item) =>
+        item.artist.toLowerCase().includes(keyword.toLowerCase())
+      );
       setFilterList(list);
       setSearchResult(true);
     } else {
@@ -19,6 +21,7 @@ export default function ContactList() {
       setSearchResult(false);
     }
   }, [keyword, contactList]);
+
   return (
     <>
       <SearchBox />
