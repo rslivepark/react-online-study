@@ -5,7 +5,7 @@ import ContactList from './components/ContactList';
 function App() {
   return (
     <div className='App'>
-      <h1 className='title'>Who's your favorite singer?</h1>
+      <h1 className='title'>Add Someone I Know</h1>
       <Container className='col-4'>
         <Row>
           <Col>

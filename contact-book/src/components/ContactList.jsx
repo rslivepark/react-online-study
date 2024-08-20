@@ -28,10 +28,11 @@ export default function ContactList() {
       <Container>
         <div>
           <div className='search-list'>
+            <span>모든 연락처 </span>
             <span className='search-result' style={{ fontWeight: '600' }}>
               {filterList.length}
             </span>
-            <span>명의 가수가 등록되어 있습니다.</span>
+            <span>명</span>
           </div>
           <div className='result-list'>
             {filterList.length > 0

@@ -11,7 +11,7 @@ export default function ContactForm() {
   const addContact = (e) => {
     e.preventDefault();
     if (artist.trim() === '' || title.trim() === '') {
-      alert('가수와 최애곡 모두 입력해주세요.');
+      alert('이름과 번호를 모두 입력해주세요.');
       return;
     }
     dispatch({
@@ -26,19 +26,19 @@ export default function ContactForm() {
     <div>
       <Form onSubmit={addContact}>
         <Form.Group className='mb-3' controlId='formArtist'>
-          <Form.Label>좋아하는 가수</Form.Label>
+          <Form.Label>🏷️ 이름</Form.Label>
           <Form.Control
             type='text'
-            placeholder='가수 이름을 입력하세요.'
+            placeholder='이름을 입력하세요.'
             value={artist}
             onChange={(e) => setArtist(e.target.value)}
           />
         </Form.Group>
         <Form.Group className='mb-3' controlId='formTitle'>
-          <Form.Label>최애곡</Form.Label>
+          <Form.Label>☎️ 전화번호</Form.Label>
           <Form.Control
             type='text'
-            placeholder='곡 이름을 입력하세요.'
+            placeholder='전화번호를 입력하세요.'
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />

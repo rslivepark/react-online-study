@@ -27,7 +27,7 @@ export default function SearchBox() {
       <Form>
         <Row className='title-header'>
           <div className='second-title'>
-            <span style={{ fontWeight: '600' }}>Favorite Artist</span>
+            <span style={{ fontWeight: '600' }}>연락처를 등록하세요</span>
             <Button className='addBtn btn-sm' onClick={handleShow}>
               추가
             </Button>
@@ -38,7 +38,7 @@ export default function SearchBox() {
             <Form.Control
               className='search-area'
               type='text'
-              placeholder='가수 이름을 입력하면 검색할 수 있습니다.'
+              placeholder='이름을 입력하면 검색할 수 있습니다.'
               style={{ fontSize: '13px' }}
               value={keyword}
               onChange={handleKeywordChange}
