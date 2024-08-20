@@ -12,7 +12,7 @@ export default function ContactList() {
   useEffect(() => {
     if (keyword !== '') {
       const list = contactList.filter((item) =>
-        item.artist.toLowerCase().includes(keyword.toLowerCase())
+        item.name.toLowerCase().includes(keyword.toLowerCase())
       );
       setFilterList(list);
       setSearchResult(true);

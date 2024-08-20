@@ -12,8 +12,8 @@ export default function reducer(state = initialState, action) {
       const updatedContactList = [
         ...state.contactList,
         {
-          artist: payload.artist,
-          title: payload.title,
+          name: payload.name,
+          phoneNumber: payload.phoneNumber,
         },
       ];
       return {
@@ -24,7 +24,7 @@ export default function reducer(state = initialState, action) {
 
     case 'SEARCH_BY_NAME':
       const filteredContacts = state.contactList.filter((contact) =>
-        contact.artist.toLowerCase().includes(payload.keyword.toLowerCase())
+        contact.name.toLowerCase().includes(payload.keyword.toLowerCase())
       );
       return {
         ...state,
