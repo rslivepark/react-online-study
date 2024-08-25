@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import SearchBox from './SearchBox';
 import ContactItem from './ContactItem';
 import { useSelector } from 'react-redux';
-import { Container } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 
 export default function ContactList() {
   const { contactList, keyword } = useSelector((state) => state);
@@ -34,7 +34,7 @@ export default function ContactList() {
             </span>
             <span>명</span>
           </div>
-          <div className='result-list'>
+          <Row className='result-list'>
             {filterList.length > 0
               ? filterList.map((item, index) => (
                   <ContactItem item={item} key={index} />
@@ -42,7 +42,7 @@ export default function ContactList() {
               : searchResult && (
                   <p className='result-alert'>검색결과가 없습니다.</p>
                 )}
-          </div>
+          </Row>
         </div>
       </Container>
     </>

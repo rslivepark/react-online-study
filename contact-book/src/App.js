@@ -6,7 +6,7 @@ function App() {
   return (
     <div className='App'>
       <h1 className='title'>Add Someone I Know</h1>
-      <Container className='col-4'>
+      <Container>
         <Row>
           <Col>
             <ContactList />

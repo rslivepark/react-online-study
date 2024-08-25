@@ -13,18 +13,21 @@ export default function ContactItem({ item }) {
   };
 
   return (
-    <Row className='item-list'>
-      <Col lg={2}>
-        <img
-          src='https://www.transparentpng.com/download/user/gray-user-profile-icon-png-fP8Q1P.png'
-          alt='userPhoto'
-          width={50}
-        />
-      </Col>
-      <Col lg={10} className='singer-info'>
-        <div>{item.name}</div>
-        <div>{formatPhoneNumber(item.phoneNumber)}</div>
-      </Col>
-    </Row>
+    <Col xs={12} sm={6} md={3} xl={2}>
+      <Row className='item-list'>
+        <Row className='justify-content-center'>
+          <img
+            src='https://www.transparentpng.com/download/user/gray-user-profile-icon-png-fP8Q1P.png'
+            alt='userPhoto'
+            className='img-fluid '
+            style={{ width: '100px', height: 'auto' }}
+          />
+          <Row className='justify-content-center'>{item.name}</Row>
+          <Row className='justify-content-center'>
+            {formatPhoneNumber(item.phoneNumber)}
+          </Row>
+        </Row>
+      </Row>
+    </Col>
   );
 }
