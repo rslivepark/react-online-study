@@ -4,11 +4,32 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Limelight&family=Noto+Sans+KR:wght@100..900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&display=swap');
+
+:root {
+  --black: #161617;
+  --white: #fafafc;
+  --green: #29c674;
+  --red: #f03e5d;
+  --blue: #0944ca;
+  --yellow: #f2f78e;
+  --purple: #c697f4;
+  --orange: #ef533b;
+  --skyblue: #91d7f6;
+  --light-green: #b2ef67;
+  --accent-skyblue: #91d7f6;
+  --accent-green: #29c674;
+  --primary-font: 'Work Sans';
+  --secondary-font: 'Poppins';
+  --logo-font: 'Montserrat Subrayada'; /* fontweight: 400, 700 */
+}
+
 .title {
-  margin-top: 40px;
   text-align: center;
   font-family: Limelight;
-  font-size: 30px;
+  font-size: 2.4rem;
 }
 .second-title {
   display: flex;
@@ -25,4 +46,51 @@
 }
 .addBtn {
   font-weight: 600 !important;
+}
+
+/* 기본 배경색 (xs) */
+#root {
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--white);
+  color: var(--black);
+}
+
+@media (min-width: 576px) {
+  #root {
+    background-color: var(--green);
+  }
+  .title {
+    font-size: 2.4rem !important;
+  }
+}
+@media (min-width: 768px) {
+  #root {
+    background-color: var(--yellow);
+  }
+  .title {
+    font-size: 2.4rem !important;
+  }
+}
+@media (min-width: 992px) {
+  #root {
+    background-color: var(--red);
+  }
+  .title {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 1200px) {
+  #root {
+    background-color: var(--skyblue);
+  }
+  .title {
+    font-size: 3rem;
+  }
+}
+
+.App {
+  height: 100vh;
+  padding: 100px;
 }

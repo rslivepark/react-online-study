@@ -26,9 +26,45 @@ export default function SearchBox() {
     <Container style={{ marginTop: '1rem' }}>
       <Form>
         <Row className='title-header'>
-          <div className='second-title'>
+          <div className='second-title '>
             <span style={{ fontWeight: '600' }}>연락처를 등록하세요</span>
-            <Button className='addBtn btn-sm' onClick={handleShow}>
+            {/* 기본 색상 버튼 (xs) */}
+            <Button
+              className='btn-sm btn-primary d-block d-sm-none text-light fw-bold'
+              onClick={handleShow}
+            >
+              추가
+            </Button>
+
+            {/* 작은 화면 (sm) */}
+            <Button
+              className='btn-sm btn-success d-none d-sm-block d-md-none text-light fw-bold'
+              onClick={handleShow}
+            >
+              추가
+            </Button>
+
+            {/* 중간 화면 (md) */}
+            <Button
+              className='btn-sm btn-warning d-none d-md-block d-lg-none text-light fw-bold'
+              onClick={handleShow}
+            >
+              추가
+            </Button>
+
+            {/* 큰 화면 (lg) */}
+            <Button
+              className='btn-sm btn-danger d-none d-lg-block d-xl-none text-light fw-bold'
+              onClick={handleShow}
+            >
+              추가
+            </Button>
+
+            {/* 매우 큰 화면 (xl) */}
+            <Button
+              className='btn-sm btn-info d-none d-xl-block text-light fw-bold'
+              onClick={handleShow}
+            >
               추가
             </Button>
           </div>
