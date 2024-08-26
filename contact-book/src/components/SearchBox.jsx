@@ -30,7 +30,7 @@ export default function SearchBox() {
             <span style={{ fontWeight: '600' }}>연락처를 등록하세요</span>
             {/* 기본 색상 버튼 (xs) */}
             <Button
-              className='btn-sm btn-primary d-block d-sm-none text-light fw-bold'
+              className='btn-sm btn-primary d-block d-sm-none text-light fw-bold basic-btn'
               onClick={handleShow}
             >
               추가
@@ -74,7 +74,7 @@ export default function SearchBox() {
             <Form.Control
               className='search-area'
               type='text'
-              placeholder='이름을 입력하면 검색할 수 있습니다.'
+              placeholder='이름을 입력하세요.'
               style={{ fontSize: '13px' }}
               value={keyword}
               onChange={handleKeywordChange}

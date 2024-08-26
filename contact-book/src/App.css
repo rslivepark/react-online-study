@@ -56,6 +56,19 @@
   background-color: var(--white);
   color: var(--black);
 }
+@media (max-width: 420px) {
+  .title {
+    font-size: 2rem !important;
+  }
+  .second-title span,
+  .search-list span {
+    font-size: 0.8rem !important;
+  }
+  .basic-btn,
+  .search-area::placeholder {
+    font-size: 0.7rem !important;
+  }
+}
 
 @media (min-width: 576px) {
   #root {
